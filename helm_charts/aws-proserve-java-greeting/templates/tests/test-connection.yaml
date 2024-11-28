@@ -11,5 +11,6 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['--spider', '{{ include "aws-proserve-java-greeting.fullname" . }}:{{ .Values.service.port | default 80 }}']
+      args: ['{{ include "aws-proserve-java-greeting.fullname" . }}:{{ .Values.service.port }}']
+
   restartPolicy: Never
