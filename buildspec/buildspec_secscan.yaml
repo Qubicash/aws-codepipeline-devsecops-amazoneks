@@ -49,7 +49,7 @@ phases:
            echo -e "\nNo Previous Commit, hence incremental code scan will not happen"
         else
            echo -e "\nAnalysing incremental changes between $CURRENT_COMMIT and $PREVIOUS_COMMIT"
-           $BASE/aws-codeguru-cli/bin/aws-codeguru-cli --region $AWS_REGION --bucket-name $CG_REVIEWER_BUCKET_NAME --root-dir $BASE --build $APP_BUILD_ARTIFACTS --src $SRC --commit-range $PREVIOUS_COMMIT=$CURRENT_COMMIT --output $OUTPUT --no-prompt
+          # $BASE/aws-codeguru-cli/bin/aws-codeguru-cli --region $AWS_REGION --bucket-name $CG_REVIEWER_BUCKET_NAME --root-dir $BASE --build $APP_BUILD_ARTIFACTS --src $SRC --commit-range $PREVIOUS_COMMIT=$CURRENT_COMMIT --output $OUTPUT --no-prompt
         fi
   post_build: # Upload Security vulnerabilities found in docker image to AWS SecurityHub in ASFF format
     commands:
