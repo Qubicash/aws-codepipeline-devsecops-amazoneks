@@ -44,7 +44,7 @@ phases:
       - echo $BASE $SRC $APP_BUILD_ARTIFACTS $OUTPUT $CURRENT_COMMIT $PREVIOUS_COMMIT
       - ls -lhtar $BASE $SRC
       - |
-        if [ $PREVIOUS_COMMIT = $CURRENT_COMMIT ]; then
+        if [ $PREVIOUS_COMMIT == $CURRENT_COMMIT ]; then
            echo -e "\nNo Previous Commit, hence incremental code scan will not happen"
         else
            echo -e "\nAnalysing incremental changes between $CURRENT_COMMIT and $PREVIOUS_COMMIT"
