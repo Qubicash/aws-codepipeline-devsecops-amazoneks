@@ -39,8 +39,9 @@ phases:
       - export APP_BUILD_ARTIFACTS=${BASE}/code/app/target/classes
       - mkdir ${BASE}/output
       - export OUTPUT=${BASE}/output
-      - export CURRENT_COMMIT=${CODEBUILD_RESOLVED_SOURCE_VERSION}
+      - export CURRENT_COMMIT=${CODEBUILD_RESOLVED_SOURCE_VERSION}    
       - export PREVIOUS_COMMIT=$(git log --format="%H" -n 2 | tail -1)
+      - echo "$PREVIOUS_COMMIT"
       - echo $BASE $SRC $APP_BUILD_ARTIFACTS $OUTPUT $CURRENT_COMMIT $PREVIOUS_COMMIT
       - ls -lhtar $BASE $SRC
       - |
